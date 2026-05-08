@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Master Checklist für Reisen</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="kicker" data-i18n="kicker">Reise-Länderprofil</p>
+      <h1 data-i18n="title">Master Checklist für Reisen</h1>
+      <p class="intro" data-i18n="intro">Wähle Zielland, Nationalität, Passland, Wohnsitz, Ausgangsland und Reisezweck. Die App befüllt verfügbare Felder, zeigt Quellen und markiert sensible Punkte mit Vertrauensgrad.</p>
+    </div>
+    <div class="language-box"><button id="deBtn" class="active" type="button">Deutsch</button><button id="enBtn" type="button">English</button></div>
+  </header>
+  <main class="wrap">
+    <section class="card form-card">
+      <h2 data-i18n="formTitle">Reisedaten eingeben</h2>
+      <div class="grid">
+        <label><span data-i18n="destination">Zielland</span><input id="destination" list="countryList" placeholder="z. B. Uganda, Italy, Japan" /></label>
+        <label><span data-i18n="nationality">Nationalität</span><input id="nationality" list="countryList" placeholder="z. B. Austria" /></label>
+        <label><span data-i18n="passportCountry">Passland</span><input id="passportCountry" list="countryList" placeholder="z. B. Austria" /></label>
+        <label><span data-i18n="residence">Wohnsitz</span><input id="residence" list="countryList" placeholder="z. B. Austria" /></label>
+        <label><span data-i18n="origin">Ausgangsland</span><input id="origin" list="countryList" placeholder="z. B. Austria" /></label>
+        <label><span data-i18n="purpose">Reisezweck</span><select id="purpose"><option value="tourism" data-i18n="tourism">Tourismus</option><option value="business" data-i18n="business">Business</option><option value="transit" data-i18n="transit">Transit</option><option value="study" data-i18n="study">Studium</option><option value="work" data-i18n="work">Arbeit</option></select></label>
+        <label><span data-i18n="stayDays">Aufenthaltstage</span><input id="stayDays" type="number" min="1" max="365" value="14" /></label>
+        <label><span data-i18n="transitCountries">Transitländer optional</span><input id="transitCountries" placeholder="z. B. Turkey, Qatar" /></label>
+      </div>
+      <datalist id="countryList"></datalist>
+      <div class="actions"><button id="runCheck" class="primary" type="button" data-i18n="runCheck">Checkliste erstellen</button><button id="reset" class="secondary" type="button" data-i18n="reset">Zurücksetzen</button></div>
+      <p id="status" class="status"></p>
+    </section>
+    <section id="warningBox" class="warning hidden"><h2 data-i18n="warningTitle">Wichtiger Hinweis</h2><p data-i18n="warningText">Diese Testversion ersetzt keine offizielle Reiseauskunft. Sensible Felder wie Visum, Pass, Gesundheit, Zoll und Führerschein müssen vor der Abreise über offizielle Stellen geprüft werden.</p></section>
+    <nav id="topicNav" class="topic-nav hidden"></nav>
+    <section id="summary" class="card hidden"></section>
+    <section id="results" class="results hidden"></section>
+  </main>
+  <footer class="footer"><p data-i18n="footer">Test-MVP für Netlify. Fixe Länderfakten werden aus einem lokalen Datensatz befüllt; dynamische Reisevorschriften werden als prüfpflichtige Ergebnisse mit Quellenvertrauen angezeigt.</p></footer>
+  <script src="./app.js"></script>
+</body>
+</html>
